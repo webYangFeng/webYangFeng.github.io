@@ -3,7 +3,7 @@
 <template>
   <div class="card-container">
     <div v-for="el in 2" :key="el" class="cardBox">
-      <div v-for="(card, index) in cards[el - 1]" :key="index" :class="{ card: true, flipped: card.flipped }" @click="flipCard(el - 1, index)">
+      <div v-for="(card, index) in cards[el - 1]" :key="index" :class="{ card: true, flipped: card.flipped,cardItem:true }" @click="flipCard(el - 1, index)">
         <div class="front">
           <img :src="'https://picsum.photos/180/250/?' + 'random=' + Math.random()" onerror="this.src='https://picsum.photos/180/250/'" />
         </div>
@@ -62,7 +62,13 @@ export default {
   align-content: center;
   align-items: center;
   justify-content: space-evenly;
-
+}
+.cardItem{
+  transition: transform 0.1s;
+  transform: translateY(0px);
+}
+.cardItem:hover{
+  transform: translateY(5px);
 }
 .card {
   width: 180px;

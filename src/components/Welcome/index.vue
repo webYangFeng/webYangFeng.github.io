@@ -4,14 +4,30 @@
   <div class="WelcomeBox">
     <div class="mask">
       <div class="content">
-        Hello World
-        <h2>WebYangFeng</h2>
+        <span class="landIn">Hello World</span>
+        <h2 class="landIn">WebYangFeng</h2>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup >
+import { onMounted } from "vue";
+onMounted(()=>{
+  let landInTexts = document.querySelectorAll(".landIn");
+  landInTexts.forEach((landInText) => {
+    let letters = landInText.textContent.split("");
+    landInText.textContent = "";
+    letters.forEach((letter, i) => {
+      let span = document.createElement("span");
+      span.className = "landSpan";
+      span.textContent = letter;
+      span.style.animationDelay = `${i * 0.1}s`;
+      landInText.append(span);
+    });
+  });
+})
+</script>
 
 <style scoped>
 .WelcomeBox {
@@ -47,5 +63,21 @@
 h2 {
   width: 100%;
   font-size: 5vw;
+}
+</style>
+<style>
+.landSpan {
+  animation: landIn 0.8s ease-out both;
+}
+@keyframes landIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

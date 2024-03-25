@@ -1,15 +1,15 @@
 <!-- @format -->
 
 <template>
-  <Model></Model>
+  <!-- <Model></Model> -->
   <Crosswise-scroll>
     <div class="scrollBox"><Welcome></Welcome></div>
-    <div class="scrollBox"><work></work></div>
-    <div class="scrollBox"><project></project></div>
-    <div class="scrollBox"><Sam></Sam></div>
-    <div class="scrollBox"><imgWorks></imgWorks></div>
+    <div class="scrollBox"><work v-if="flagRand"></work></div>
+    <div class="scrollBox"><project v-if="flagRand"></project></div>
+    <div class="scrollBox"><Sam v-if="flagRand"></Sam></div>
+    <div class="scrollBox"><imgWorks v-if="flagRand"></imgWorks></div>
   </Crosswise-scroll>
-  <div class="navBoxList">
+  <div class="navBoxList" @click="startRenderDom">
     <navBox index="1">首页</navBox>
     <navBox index="2">工作</navBox>
     <navBox index="3">项目</navBox>
@@ -27,6 +27,12 @@ import CrosswiseScroll from "@/components/crosswiseScroll/index.vue";
 import Welcome from "@/components/Welcome/index.vue";
 import work from "@/components/work/index.vue";
 import project from "@/components/project/index.vue";
+import { ref } from "vue";
+// 优化首屏加载 避免首页animation动画卡顿
+let flagRand = ref<boolean>(false);
+function startRenderDom() {
+ flagRand.value = true;
+}
 </script>
 
 <style lang="scss">
