@@ -10,7 +10,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { onMounted,onBeforeUnmount } from "vue";
+import { onMounted, onBeforeUnmount } from "vue";
 onMounted(() => {
   initThree();
 });
@@ -35,7 +35,7 @@ function initThree() {
   var s: number = 100; //三维场景显示范围控制系数，系数越大，显示的范围越大
   //创建相机对象
   var camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 1000);
-  camera.position.set(10, 100, 230); //设置相机位置
+  camera.position.set(-360, 100, 200); //设置相机位置
   camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
 
   // 环境光
@@ -45,10 +45,10 @@ function initThree() {
   let group = new THREE.Group();
   const gltfLoader = new GLTFLoader();
   var mixer: any = null; //声明一个混合器变量
-  gltfLoader.load("/model/figure.glb", (gltf: any) => {
+  gltfLoader.load("/model/stylized.glb", (gltf: any) => {
     let model = gltf.scene;
-    model.scale.set(60, 60, 60);
-    model.position.set(0, -90, 0);
+    model.scale.set(150, 150, 150);
+    model.position.set(0, 0, 20);
     group.add(model);
 
     model.traverse((e: any) => {
@@ -106,20 +106,23 @@ onBeforeUnmount(() => {
 
 <style lang="scss">
 .modelMain {
-  width: 20vw;
-  height: 40vh;
+  width: 10vw;
+  height: 20vh;
   position: fixed;
-  bottom: 0;
-  left: 0;
+  left: 10vw;
+  top: 0;
   z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  // box-shadow: 0 0 10px 0px red;
   #three {
     width: 100%;
     height: 100%;
   }
 }
-@media screen and (max-width: 800px) {
-  .modelMain {
-    width: 50vw;
-  }
-}
+// @media screen and (max-width: 800px) {
+// .modelMain {
+// width: 50vw;
+// }
+// }
 </style>

@@ -7,13 +7,15 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from "vue";
+import { onMounted, defineEmits } from "vue";
 import { useRoute } from "vue-router";
 let timeOut: any = null;
-let route:any = useRoute();
+let route: any = useRoute();
+let emits = defineEmits(["startRenderDom"]);
 onMounted(() => {
   let container: HTMLElement = document.querySelector(".containerScroll") as HTMLElement;
   container.addEventListener("wheel", (event) => {
+    emits("startRenderDom");
     event.preventDefault();
     if (timeOut) {
       return;
@@ -31,14 +33,13 @@ onMounted(() => {
       containerScroll.scrollTo({ top: 0, left: containerScroll.scrollLeft - page_w, behavior: "smooth" });
     }
   });
-
 });
 
-window.addEventListener('resize',()=>{
-  if(route.path == '/'){
+window.addEventListener("resize", () => {
+  if (route.path == "/") {
     document.querySelector(".containerScroll")?.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
-})
+});
 </script>
 
 <style lang="scss">

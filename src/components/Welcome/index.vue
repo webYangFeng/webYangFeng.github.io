@@ -33,7 +33,7 @@ onMounted(()=>{
 .WelcomeBox {
   width: 100%;
   height: 100vh;
-  background-image: url("../../assets/image/img2.jpg");
+  background-image: url("../../assets/image/bg1.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -51,14 +51,15 @@ onMounted(()=>{
   align-content: center;
   flex-wrap: wrap;
   color: transparent;
-  text-stroke: 2px #fff;
-  -webkit-text-stroke: 2px #fff;
-  background-image: url("../../assets/image/img2.jpg");
+  text-stroke: 2px #39d98c;
+  -webkit-text-stroke: 2px #39d98c;
+  background-image: url("../../assets/image/bg1.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-clip: text;
   text-align: center;
   font-size: 10vw;
+  font-family: "华文彩云","Microsoft YaHei","黑体","宋体",sans-serif;
 }
 h2 {
   width: 100%;
