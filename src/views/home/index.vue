@@ -9,10 +9,10 @@
     <div class="scrollBox"><imgWorks v-if="flagRand"></imgWorks></div>
   </Crosswise-scroll>
   <div class="navBoxList" @click="startRenderDom">
-    <navBox index="1">首页</navBox>
-    <navBox index="2">经历</navBox>
+    <navBox index="1">Home</navBox>
+    <navBox index="2">Canvas</navBox>
     <navBox index="3">SAM</navBox>
-    <navBox index="4">卡片</navBox>
+    <navBox index="4">Card</navBox>
   </div>
 </template>
 

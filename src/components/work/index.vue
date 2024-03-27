@@ -3,10 +3,7 @@
 <template>
   <div class="workMain">
     <div class="content">
-      <h2>XXXXXX</h2>
-      <p>123123</p>
-      <h2>XXXXXX</h2>
-      <p>123123</p>
+      <h2>杨枫<br/>河南安阳<br/>参加过</h2>
     </div>
     <hoverCanvas domName="workMain"></hoverCanvas>
   </div>
@@ -31,5 +28,9 @@ import hoverCanvas from "@/components/hoverCanvas/index.vue";
   background: transparent;
   z-index: 10;
   position: absolute;
+  font-family: "楷体","宋体","微软雅黑";
+}
+h2{
+  font-size: 2vw;
 }
 </style>
